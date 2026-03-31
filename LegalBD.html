@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="bn" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LegalBD - বাংলাদেশের বিশ্বস্ত আইনি সেবা</title>
+  <meta name="description" content="বাংলাদেশের বিশ্বস্ত আইনি সেবা - কর্পোরেট, সম্পত্তি, পরিবার ও সাইবার আইনে বিশেষজ্ঞ পরামর্শ। ১২+ বছর অভিজ্ঞতা, ৫০০+ সফল কেস।"/>
+  <meta name="keywords" content="আইনজীবী, লিগ্যাল সার্ভিস, কোম্পানি রেজিস্ট্রেশন, ট্রেড লাইসেন্স, বাংলাদেশ"/>
+  <meta name="author" content="LegalBD"/>
+  <link rel="canonical" href="https://legalbd.com/"/>
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="LegalBD - বাংলাদেশের বিশ্বস্ত আইনি সেবা"/>
+  <meta property="og:description" content="কর্পোরেট, সম্পত্তি, পরিবার ও সাইবার আইনে বিশেষজ্ঞ পরামর্শ"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://legalbd.com/"/>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+
+  <style>
+    /* ===== CSS VARIABLES ===== */
+    :root{
+      --primary:#1e3a5f;--primary-dark:#152a45;--accent:#c9a227;--accent-hover:#b08d1f;
+      --bg:#f8fafc;--surface:#fff;--text:#0f172a;--text-muted:#64748b;--border:#e2e8f0;
+      --shadow:0 10px 30px rgba(0,0,0,.08);--radius:12px;--transition:all .3s ease;
+      --header-bg:rgba(255,255,255,.95);--header-border:rgba(30,58,95,.1)
+    }
+    [data-theme="dark"]{
+      --bg:#0f172a;--surface:#1e293b;--text:#f1f5f9;--text-muted:#94a3b8;--border:#334155;
+      --shadow:0 10px 30px rgba(0,0,0,.3);--header-bg:rgba(15,23,42,.95);--header-border:rgba(255,255,255,.1)
+    }
+
+    /* ===== BASE RESET ===== */
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:'Inter','Hind Siliguri',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;transition:background .3s,color .3s}
+    a{text-decoration:none;color:inherit}
+    ul{list-style:none}
+    img{max-width:100%;height:auto}
+    button,input,select,textarea{font-family:inherit;font-size:inherit}
+
+    /* ===== STICKY HEADER ===== */
+    .ls-header{
+      position:sticky;top:0;z-index:1000;
+      background:var(--header-bg);backdrop-filter:blur(12px);
+      border-bottom:1px solid var(--header-border);
+      transition:var(--transition)    }
+    .ls-header.scrolled{box-shadow:var(--shadow);padding:.5rem 0}
+    .ls-nav{
+      max-width:1200px;margin:0 auto;padding:1rem 1.5rem;
+      display:flex;align-items:center;justify-content:space-between
+    }
+    .ls-logo{font-size:1.25rem;font-weight:700;color:var(--primary);display:flex;align-items:center;gap:.5rem}
+    [data-theme="dark"] .ls-logo{color:#fff}
+    .ls-logo-accent{color:var(--accent)}
+    .ls-nav-links{display:flex;gap:1.5rem}
+    .ls-nav-links a{color:var(--text);font-weight:500;transition:color .2s}
+    .ls-nav-links a:hover{color:var(--accent)}
+    .ls-header-actions{display:flex;align-items:center;gap:1rem}
+    .ls-theme-toggle{
+      background:var(--surface);border:1px solid var(--border);
+      width:40px;height:40px;border-radius:10px;display:flex;
+      align-items:center;justify-content:center;cursor:pointer;
+      color:var(--text);transition:var(--transition)
+    }
+    .ls-theme-toggle:hover{border-color:var(--accent);color:var(--accent)}
+    .ls-menu-btn{display:none;background:none;border:none;font-size:1.5rem;color:var(--text);cursor:pointer}
+    
+    @media(max-width:768px){
+      .ls-nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--surface);flex-direction:column;padding:1rem;border-bottom:1px solid var(--border)}
+      .ls-nav-links.active{display:flex}
+      .ls-menu-btn{display:block}
+    }
+
+    /* ===== HERO SECTION ===== */
+    .ls-hero{
+      background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+      color:#fff;padding:clamp(5rem,10vw,7rem) 1.5rem 4rem;position:relative;overflow:hidden;padding-top:80px
+    }
+    .ls-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at top right,rgba(201,162,39,.15),transparent 60%);pointer-events:none}
+    .ls-container{max-width:1200px;margin:0 auto;position:relative;z-index:2}
+    .ls-grid{display:grid;grid-template-columns:1fr;gap:2.5rem;align-items:center}
+    @media(min-width:992px){.ls-grid{grid-template-columns:1.1fr .9fr}}
+    .ls-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(255,255,255,.12);color:var(--accent);padding:.4rem .9rem;border-radius:50px;font-size:.875rem;font-weight:600;margin-bottom:1.25rem}
+    .ls-title{font-size:clamp(1.75rem,4vw,2.5rem);font-weight:700;line-height:1.2;margin-bottom:1rem}
+    .ls-subtitle{font-size:clamp(1rem,2vw,1.125rem);color:rgba(255,255,255,.85);margin-bottom:2rem;max-width:540px}
+    .ls-btn-group{display:flex;flex-wrap:wrap;gap:1rem}
+    .ls-btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.875rem 1.75rem;border-radius:8px;font-weight:600;font-size:1rem;cursor:pointer;border:none;transition:var(--transition)}
+    .ls-btn-primary{background:var(--accent);color:var(--dark)}
+    .ls-btn-primary:hover{background:var(--accent-hover);transform:translateY(-2px);box-shadow:0 8px 20px rgba(201,162,39,.35)}
+    .ls-btn-outline{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.3)}
+    .ls-btn-outline:hover{border-color:var(--accent);color:var(--accent);background:rgba(255,255,255,.08)}
+    .ls-visual{display:flex;justify-content:center}
+    .ls-card{background:rgba(255,255,255,.08);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.15);border-radius:var(--radius);padding:1.5rem;max-width:420px;width:100%;box-shadow:var(--shadow);animation:ls-fade-up .6s ease-out}
+    @keyframes ls-fade-up{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+    .ls-stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1rem}    .ls-stat{text-align:center;padding:.75rem;background:rgba(255,255,255,.06);border-radius:8px}
+    .ls-stat-num{display:block;font-size:1.5rem;font-weight:700;color:var(--accent)}
+    .ls-stat-label{font-size:.8rem;color:rgba(255,255,255,.8)}
+
+    /* ===== PRACTICE AREAS ===== */
+    .ls-practice{padding:clamp(3rem,6vw,5rem) 1.5rem;background:var(--surface)}
+    .ls-section-header{text-align:center;max-width:680px;margin:0 auto 3rem}
+    .ls-section-title{font-size:clamp(1.5rem,3vw,2rem);font-weight:700;color:var(--primary);margin-bottom:.75rem}
+    [data-theme="dark"] .ls-section-title{color:#fff}
+    .ls-section-desc{color:var(--text-muted)}
+    .ls-practice-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.25rem;max-width:1200px;margin:0 auto}
+    .ls-practice-card{background:var(--bg);border-radius:var(--radius);padding:1.5rem;border:1px solid var(--border);transition:var(--transition);cursor:pointer;position:relative;overflow:hidden}
+    .ls-practice-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(30,58,95,.03),transparent);opacity:0;transition:var(--transition)}
+    .ls-practice-card:hover{transform:translateY(-4px);border-color:var(--accent);box-shadow:var(--shadow)}
+    .ls-practice-card:hover::before{opacity:1}
+    .ls-icon{width:44px;height:44px;background:linear-gradient(135deg,var(--primary),var(--primary-dark));border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:1rem;color:#fff;font-weight:700;font-size:1.1rem}
+    .ls-practice-title{font-weight:600;font-size:1.1rem;margin-bottom:.5rem;color:var(--text)}
+    .ls-practice-desc{font-size:.95rem;color:var(--text-muted)}
+    .ls-link{display:inline-flex;align-items:center;gap:.35rem;color:var(--primary);font-weight:600;font-size:.9rem;margin-top:1rem}
+    [data-theme="dark"] .ls-link{color:var(--accent)}
+    .ls-link:hover{gap:.6rem}
+
+    /* ===== FAQ SECTION ===== */
+    .ls-faq{padding:clamp(3rem,6vw,5rem) 1.5rem;background:var(--bg)}
+    .ls-faq-grid{max-width:800px;margin:0 auto;display:grid;gap:1rem}
+    .ls-faq-item{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
+    .ls-faq-btn{width:100%;text-align:left;padding:1.25rem 1.5rem;background:none;border:none;display:flex;justify-content:space-between;align-items:center;cursor:pointer;font-weight:600;color:var(--text);font-size:1.05rem;transition:var(--transition)}
+    .ls-faq-btn:hover{color:var(--accent)}
+    .ls-faq-btn::after{content:'+';font-size:1.5rem;color:var(--accent);transition:transform .3s}
+    .ls-faq-item[open] .ls-faq-btn::after{transform:rotate(45deg)}
+    .ls-faq-content{padding:0 1.5rem 1.25rem;color:var(--text-muted);line-height:1.7}
+    details[open] .ls-faq-content{animation:ls-fade-in .3s ease}
+    @keyframes ls-fade-in{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
+
+    /* ===== CONTACT SECTION ===== */
+    .ls-contact{padding:clamp(3rem,6vw,5rem) 1.5rem;background:var(--surface)}
+    .ls-contact-grid{display:grid;grid-template-columns:1fr;gap:2.5rem;max-width:1100px;margin:0 auto}
+    @media(min-width:900px){.ls-contact-grid{grid-template-columns:1fr 1.1fr;align-items:start}}
+    .ls-contact-cards{display:grid;gap:1rem}
+    .ls-contact-card{display:flex;gap:1rem;align-items:flex-start;padding:1rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius)}
+    .ls-contact-icon{width:40px;height:40px;background:linear-gradient(135deg,var(--primary),var(--primary-dark));border-radius:8px;display:flex;align-items:center;justify-content:center;color:#fff;flex-shrink:0;font-size:1.25rem}
+    .ls-contact-card strong{display:block;font-weight:600;color:var(--text);margin-bottom:.25rem}
+    .ls-contact-card p{font-size:.95rem;color:var(--text-muted);margin:0}
+    .ls-contact-card a:hover{text-decoration:underline}
+    .ls-contact-form{background:var(--bg);padding:1.5rem;border:1px solid var(--border);border-radius:var(--radius)}
+    .ls-form-grid{display:grid;grid-template-columns:1fr;gap:1rem}
+    @media(min-width:600px){.ls-form-grid{grid-template-columns:1fr 1fr}}
+    .ls-form-group{margin-bottom:1rem}
+    .ls-form-label{display:block;font-weight:500;margin-bottom:.5rem;color:var(--text);font-size:.95rem}
+    .ls-form-input{width:100%;padding:.875rem 1rem;border:1px solid var(--border);border-radius:8px;background:var(--surface);color:var(--text);transition:var(--transition)}    .ls-form-input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(201,162,39,.15)}
+    .ls-form-input::placeholder{color:var(--text-muted)}
+    select.ls-form-input{cursor:pointer}
+    .ls-form-note{font-size:.85rem;color:var(--text-muted);text-align:center;margin-top:1rem}
+
+    /* ===== TESTIMONIALS ===== */
+    .ls-testimonials{padding:clamp(3rem,6vw,5rem) 1.5rem;background:var(--bg)}
+    .ls-testimonial-grid{display:grid;grid-template-columns:1fr;gap:1.25rem;max-width:1000px;margin:0 auto}
+    @media(min-width:768px){.ls-testimonial-grid{grid-template-columns:repeat(3,1fr)}}
+    .ls-testimonial-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;transition:var(--transition)}
+    .ls-testimonial-card:hover{transform:translateY(-4px);border-color:var(--accent);box-shadow:var(--shadow)}
+    .ls-testimonial-header{display:flex;align-items:center;gap:1rem;margin-bottom:1rem}
+    .ls-avatar{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:1rem}
+    .ls-testimonial-name{display:block;font-weight:600;color:var(--text)}
+    .ls-testimonial-role{font-size:.85rem;color:var(--text-muted)}
+    .ls-rating{color:var(--accent);letter-spacing:.1rem;margin-bottom:.75rem;font-size:1.1rem}
+    .ls-testimonial-text{font-size:.95rem;color:var(--text);line-height:1.7;margin-bottom:1rem}
+    .ls-testimonial-date{font-size:.8rem;color:var(--text-muted);display:block}
+    .ls-cta-banner{margin-top:3rem;padding:1.5rem;border-radius:var(--radius);background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:#fff;display:grid;gap:1rem;align-items:center;text-align:center}
+    @media(min-width:600px){.ls-cta-banner{grid-template-columns:1fr auto;text-align:left;gap:1.5rem}}
+    .ls-cta-banner h3{color:#fff;margin:0}
+    .ls-cta-banner p{color:rgba(255,255,255,.85);margin:0}
+
+    /* ===== FOOTER ===== */
+    .ls-footer{background:var(--primary-dark);color:rgba(255,255,255,.8);padding:3rem 1.5rem;text-align:center}
+    .ls-footer a{color:var(--accent)}
+    .ls-footer-links{display:flex;justify-content:center;gap:1.5rem;margin-bottom:1.5rem;flex-wrap:wrap}
+    .ls-footer-links a:hover{text-decoration:underline}
+    .ls-social{display:flex;justify-content:center;gap:1rem;margin-bottom:1.5rem}
+    .ls-social a{width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;transition:var(--transition)}
+    .ls-social a:hover{background:var(--accent);color:var(--dark)}
+
+    /* ===== WHATSAPP FLOATING BUTTON ===== */
+    .ls-whatsapp{position:fixed;bottom:1.5rem;right:1.5rem;z-index:9999;width:56px;height:56px;border-radius:50%;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.75rem;box-shadow:0 8px 25px rgba(37,211,102,.4);transition:var(--transition);animation:ls-pulse 2s infinite}
+    .ls-whatsapp:hover{transform:scale(1.1);box-shadow:0 12px 35px rgba(37,211,102,.6)}
+    @keyframes ls-pulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.4)}70%{box-shadow:0 0 0 12px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
+    @media(max-width:480px){.ls-whatsapp{width:52px;height:52px;font-size:1.5rem;bottom:1rem;right:1rem}}
+
+    /* ===== UTILITIES ===== */
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+  </style>
+  
+  <!-- ===== SCHEMA MARKUP ===== -->
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"LegalService","name":"LegalBD","image":"https://legalbd.com/logo.png","telephone":"+8801700000000","email":"info@legalbd.com","address":{"@type":"PostalAddress","streetAddress":"হাউজ-১২, রোড-৫, ধানমন্ডি","addressLocality":"ঢাকা","postalCode":"১২০৯","addressCountry":"BD"},"areaServed":"BD","priceRange":"$$"}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"আপনারা কি ফ্রি কনসাল্টেশন দেন?","acceptedAnswer":{"@type":"Answer","text":"হ্যাঁ, প্রাথমিক আলোচনার জন্য আমরা ১৫ মিনিটের ফ্রি ভিডিও/ফোন কনসাল্টেশন অফার করি।"}},{"@type":"Question","name":"কোম্পানি রেজিস্ট্রেশন করতে কত সময় লাগে?","acceptedAnswer":{"@type":"Answer","text":"সঠিক ডকুমেন্ট সাপেক্ষে ট্রেড লাইসেন্স ৩-৫ কর্মদিবস এবং কোম্পানি রেজিস্ট্রেশন ৭-১০ কর্মদিবসে সম্পন্ন হয়।"}},{"@type":"Question","name":"সাইবার ফ্রড মামলায় কি সহায়তা পাব?","acceptedAnswer":{"@type":"Answer","text":"অবশ্যই। আমাদের সাইবার আইন এক্সপার্ট টিম পূর্ণাঙ্গ আইনি সহায়তা দেয়।"}}]}
+  </script></head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="ls-header" id="header">
+    <nav class="ls-nav" aria-label="মেইন নেভিগেশন">
+      <a href="#" class="ls-logo"><span class="ls-logo-accent">⚖️</span> LegalBD</a>
+      <button class="ls-menu-btn" aria-label="মেনু" id="menuToggle">☰</button>
+      <ul class="ls-nav-links" id="navLinks">
+        <li><a href="#services">সেবাসমূহ</a></li>
+        <li><a href="#faq">প্রশ্নোত্তর</a></li>
+        <li><a href="#consult">যোগাযোগ</a></li>
+        <li><a href="#contact">অফিস</a></li>
+      </ul>
+      <div class="ls-header-actions">
+        <button class="ls-theme-toggle" id="themeToggle" aria-label="থিম">🌙</button>
+        <a href="tel:+8801700000000" class="ls-btn ls-btn-primary" style="padding:.6rem 1.25rem;font-size:.95rem">📞 কল করুন</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="ls-hero" aria-label="হিরো">
+    <div class="ls-container">
+      <div class="ls-grid">
+        <div>
+          <span class="ls-badge">✓ বাংলাদেশের বিশ্বস্ত আইনি পার্টনার</span>
+          <h1 class="ls-title">আইনি সমস্যায় <span style="color:var(--accent)">দ্রুত ও নির্ভরযোগ্য</span> সমাধান</h1>
+          <p class="ls-subtitle">কর্পোরেট, পারিবারিক, সম্পত্তি ও সাইবার আইন—আমাদের অভিজ্ঞ টিম আপনার পাশে আছে। বিনামূল্যে পরামর্শের জন্য আজই যোগাযোগ করুন।</p>
+          <div class="ls-btn-group">
+            <a href="#consult" class="ls-btn ls-btn-primary">📞 ফ্রি কনসাল্টেশন</a>
+            <a href="#services" class="ls-btn ls-btn-outline">সেবাসমূহ দেখুন</a>
+          </div>
+        </div>
+        <div class="ls-visual">
+          <div class="ls-card">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem">
+              <strong style="font-size:1.1rem">আমাদের পারফর্মেন্স</strong>
+              <span style="color:var(--accent);font-weight:600">৯৮% সফলতা</span>
+            </div>
+            <div class="ls-stat-grid">
+              <div class="ls-stat"><span class="ls-stat-num">৫০০+</span><span class="ls-stat-label">কেস সলভড</span></div>
+              <div class="ls-stat"><span class="ls-stat-num">১২+</span><span class="ls-stat-label">বছর অভিজ্ঞতা</span></div>
+              <div class="ls-stat"><span class="ls-stat-num">২৪/৭</span><span class="ls-stat-label">সাপোর্ট</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ===== SERVICES ===== -->
+  <section class="ls-practice" id="services" aria-label="সেবাসমূহ">
+    <div class="ls-container">
+      <div class="ls-section-header">
+        <h2 class="ls-section-title">আমাদের বিশেষজ্ঞতার ক্ষেত্র</h2>
+        <p class="ls-section-desc">বাংলাদেশের জটিল আইনি পরিবেশে নেভিগেট করতে আমরা পূর্ণাঙ্গ সমাধান দিই</p>
+      </div>
+      <div class="ls-practice-grid">
+        <article class="ls-practice-card">
+          <div class="ls-icon">🏢</div>
+          <h3 class="ls-practice-title">কোম্পানি রেজিস্ট্রেশন</h3>
+          <p class="ls-practice-desc">লিমিটেড, পার্টনারশিপ ও প্রোপাইটরশিপ কোম্পানি স্থাপনে পূর্ণাঙ্গ আইনি সহায়তা।</p>
+          <a href="#consult" class="ls-link">বিস্তারিত →</a>
+        </article>
+        <article class="ls-practice-card">
+          <div class="ls-icon">📜</div>
+          <h3 class="ls-practice-title">ট্রেড লাইসেন্স</h3>
+          <p class="ls-practice-desc">নতুন লাইসেন্স ও নবায়ন প্রক্রিয়ায় দ্রুত ও ঝামেলামুক্ত সেবা।</p>
+          <a href="#consult" class="ls-link">বিস্তারিত →</a>
+        </article>
+        <article class="ls-practice-card">
+          <div class="ls-icon">💰</div>
+          <h3 class="ls-practice-title">ভ্যাট ও আয়কর</h3>
+          <p class="ls-practice-desc">ব্যক্তি ও ব্যবসায়িক ট্যাক্স রিটার্ন, ভ্যাট ফাইলিং ও পরামর্শ।</p>
+          <a href="#consult" class="ls-link">বিস্তারিত →</a>
+        </article>
+        <article class="ls-practice-card">
+          <div class="ls-icon">🌍</div>
+          <h3 class="ls-practice-title">আমদানি-রপ্তানি</h3>
+          <p class="ls-practice-desc">IRC, ERC রেজিস্ট্রেশন ও আন্তর্জাতিক বাণিজ্যিক আইনি সহায়তা।</p>
+          <a href="#consult" class="ls-link">বিস্তারিত →</a>
+        </article>
+        <article class="ls-practice-card">
+          <div class="ls-icon">🏠</div>
+          <h3 class="ls-practice-title">সম্পত্তি ও ভূমি আইন</h3>
+          <p class="ls-practice-desc">জমি ক্রয়-বিক্রয়, দলিল রেজিস্ট্রেশন ও বিরোধ নিষ্পত্তি।</p>
+          <a href="#consult" class="ls-link">বিস্তারিত →</a>
+        </article>
+        <article class="ls-practice-card">
+          <div class="ls-icon">🔐</div>
+          <h3 class="ls-practice-title">সাইবার নিরাপত্তা</h3>
+          <p class="ls-practice-desc">অনলাইন ফ্রড, ডেটা চুরি ও সোশ্যাল মিডিয়া মামলায় আইনি প্রতিকার।</p>
+          <a href="#consult" class="ls-link">বিস্তারিত →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->  <section class="ls-faq" id="faq" aria-label="প্রশ্নোত্তর">
+    <div class="ls-container">
+      <div class="ls-section-header">
+        <h2 class="ls-section-title">প্রায়শই জিজ্ঞাসিত প্রশ্ন</h2>
+        <p class="ls-section-desc">আপনার মনের সংশয় দূর করতে কিছু সাধারণ প্রশ্নের উত্তর</p>
+      </div>
+      <div class="ls-faq-grid">
+        <details class="ls-faq-item">
+          <summary class="ls-faq-btn">আপনারা কি ফ্রি কনসাল্টেশন দেন?</summary>
+          <div class="ls-faq-content">হ্যাঁ, প্রাথমিক আলোচনার জন্য আমরা ১৫ মিনিটের ফ্রি ভিডিও/ফোন কনসাল্টেশন অফার করি। বিস্তারিত সমাধান ও কেস হ্যান্ডেল করার জন্য আমাদের পেইড প্যাকেজ রয়েছে যা অত্যন্ত সাশ্রয়ী।</div>
+        </details>
+        <details class="ls-faq-item">
+          <summary class="ls-faq-btn">কোম্পানি রেজিস্ট্রেশন করতে কত সময় লাগে?</summary>
+          <div class="ls-faq-content">সঠিক ডকুমেন্ট সাপেক্ষে ট্রেড লাইসেন্স ৩-৫ কর্মদিবস এবং কোম্পানি রেজিস্ট্রেশন ৭-১০ কর্মদিবসে সম্পন্ন হয়। আমরা এক্সপেডিটেড সার্ভিসও অফার করি।</div>
+        </details>
+        <details class="ls-faq-item">
+          <summary class="ls-faq-btn">সাইবার ফ্রড মামলায় কি সহায়তা পাব?</summary>
+          <div class="ls-faq-content">অবশ্যই। আমাদের সাইবার আইন এক্সপার্ট টিম অনলাইন ফ্রড, চাঁদাবাজি, ডেটা চুরি ও সোশ্যাল মিডিয়া সংক্রান্ত মামলায় পূর্ণাঙ্গ আইনি সহায়তা দেয়।</div>
+        </details>
+        <details class="ls-faq-item">
+          <summary class="ls-faq-btn">আপনাদের ফি স্ট্রাকচার কেমন?</summary>
+          <div class="ls-faq-content">আমরা ট্রান্সপারেন্ট প্রাইসিং মেনে চলি। কনসাল্টেশন ফি, ডকুমেন্ট প্রসেসিং ও কোর্ট ফি আলাদাভাবে জানানো হয়। কোন হিডেন চার্জ নেই।</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section class="ls-contact" id="consult" aria-label="যোগাযোগ">
+    <div class="ls-container">
+      <div class="ls-contact-grid">
+        <div class="ls-contact-info">
+          <h2 class="ls-section-title" style="text-align:left;margin:0 0 1rem">আইনি পরামর্শ নিন</h2>
+          <p class="ls-section-desc" style="margin:0 0 2rem">আপনার সমস্যার বিস্তারিত জানান, ২৪ ঘণ্টার মধ্যে আমাদের এক্সপার্ট আপনার সাথে যোগাযোগ করবেন।</p>
+          <div class="ls-contact-cards">
+            <div class="ls-contact-card">
+              <span class="ls-contact-icon">📍</span>
+              <div><strong>অফিস</strong><p>হাউজ-১২, রোড-৫, ধানমন্ডি, ঢাকা-১২০৯</p></div>
+            </div>
+            <div class="ls-contact-card">
+              <span class="ls-contact-icon">📞</span>
+              <div><strong>হটলাইন</strong><p><a href="tel:+8801700000000">+৮৮০১৭০০-০০০০০০</a></p></div>
+            </div>
+            <div class="ls-contact-card">
+              <span class="ls-contact-icon">✉️</span>
+              <div><strong>ইমেইল</strong><p><a href="mailto:info@legalbd.com">info@legalbd.com</a></p></div>
+            </div>
+          </div>
+          <div style="margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--border)">
+            <p style="font-size:.9rem;color:var(--text-muted);margin-bottom:1rem">✓ বাংলাদেশ বার কাউন্সিল রেজিস্টার্ড</p>            <div style="display:flex;gap:.75rem;flex-wrap:wrap">
+              <span class="ls-badge" style="margin:0;background:var(--bg);color:var(--text);border:1px solid var(--border)">🔒 ১০০% গোপনীয়তা</span>
+              <span class="ls-badge" style="margin:0;background:var(--bg);color:var(--text);border:1px solid var(--border)">⚖️ ১২+ বছর অভিজ্ঞতা</span>
+            </div>
+          </div>
+        </div>
+        <form class="ls-contact-form" id="contactForm" novalidate>
+          <div class="ls-form-grid">
+            <div class="ls-form-group">
+              <label for="name" class="ls-form-label">আপনার নাম <span style="color:var(--accent)">*</span></label>
+              <input type="text" id="name" name="name" class="ls-form-input" required placeholder="পূর্ণ নাম">
+            </div>
+            <div class="ls-form-group">
+              <label for="phone" class="ls-form-label">মোবাইল নম্বর <span style="color:var(--accent)">*</span></label>
+              <input type="tel" id="phone" name="phone" class="ls-form-input" required placeholder="০১৭XXXXXXXX">
+            </div>
+          </div>
+          <div class="ls-form-group">
+            <label for="email" class="ls-form-label">ইমেইল</label>
+            <input type="email" id="email" name="email" class="ls-form-input" placeholder="you@example.com">
+          </div>
+          <div class="ls-form-group">
+            <label for="service" class="ls-form-label">সেবার ধরন</label>
+            <select id="service" name="service" class="ls-form-input">
+              <option value="">নির্বাচন করুন</option>
+              <option value="company">কোম্পানি রেজিস্ট্রেশন</option>
+              <option value="trade">ট্রেড লাইসেন্স</option>
+              <option value="tax">ভ্যাট ও আয়কর</option>
+              <option value="property">সম্পত্তি আইন</option>
+              <option value="cyber">সাইবার আইন</option>
+              <option value="family">পারিবারিক আইন</option>
+              <option value="other">অন্যান্য</option>
+            </select>
+          </div>
+          <div class="ls-form-group">
+            <label for="message" class="ls-form-label">আপনার সমস্যা বিস্তারিত লিখুন <span style="color:var(--accent)">*</span></label>
+            <textarea id="message" name="message" class="ls-form-input" rows="4" required placeholder="সংক্ষেপে আপনার সমস্যার বিবরণ দিন..."></textarea>
+          </div>
+          <button type="submit" class="ls-btn ls-btn-primary" style="width:100%;justify-content:center">📤 রিকোয়েস্ট পাঠান</button>
+          <p class="ls-form-note">🔒 আপনার তথ্য সম্পূর্ণ নিরাপদ ও গোপন রাখা হবে</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONIALS ===== -->
+  <section class="ls-testimonials" aria-label="মতামত">
+    <div class="ls-container">
+      <div class="ls-section-header">
+        <h2 class="ls-section-title">আমাদের ক্লায়েন্টরা কি বলেন</h2>        <p class="ls-section-desc">৫০০+ সফল কেস ও হাজারও সন্তুষ্ট গ্রাহকের বিশ্বাস</p>
+      </div>
+      <div class="ls-testimonial-grid">
+        <article class="ls-testimonial-card">
+          <div class="ls-testimonial-header">
+            <div class="ls-avatar">RA</div>
+            <div><strong class="ls-testimonial-name">রহিম আহমেদ</strong><span class="ls-testimonial-role">উদ্যোক্তা, ঢাকা</span></div>
+          </div>
+          <div class="ls-rating">★★★★★</div>
+          <p class="ls-testimonial-text">"কোম্পানি রেজিস্ট্রেশন প্রক্রিয়া এত সহজ কখনো ভাবিনি। টিম খুব প্রফেশনাল এবং দ্রুত রেসপন্স করে।"</p>
+          <time class="ls-testimonial-date" datetime="2026-02-15">১৫ ফেব্রুয়ারি, ২০২৬</time>
+        </article>
+        <article class="ls-testimonial-card">
+          <div class="ls-testimonial-header">
+            <div class="ls-avatar">FK</div>
+            <div><strong class="ls-testimonial-name">ফারজানা খান</strong><span class="ls-testimonial-role">ফ্রিল্যান্সার, চট্টগ্রাম</span></div>
+          </div>
+          <div class="ls-rating">★★★★★</div>
+          <p class="ls-testimonial-text">"সাইবার ফ্রড মামলায় আমার পাশে দাঁড়িয়েছিল। খুব ধৈর্য্যশীল এবং এক্সপার্ট লিগ্যাল গাইডেন্স পেয়েছি।"</p>
+          <time class="ls-testimonial-date" datetime="2026-01-28">২৮ জানুয়ারি, ২০২৬</time>
+        </article>
+        <article class="ls-testimonial-card">
+          <div class="ls-testimonial-header">
+            <div class="ls-avatar">MS</div>
+            <div><strong class="ls-testimonial-name">মো. সাঈদ</strong><span class="ls-testimonial-role">রিয়েল এস্টেট, সিলেট</span></div>
+          </div>
+          <div class="ls-rating">★★★★☆</div>
+          <p class="ls-testimonial-text">"জমি ক্রয়-বিক্রয়ের দলিল রেজিস্ট্রেশনে সম্পূর্ণ সহায়তা পেয়েছি। ট্রান্সপারেন্ট প্রাইসিং, কোন হিডেন চার্জ নেই।"</p>
+          <time class="ls-testimonial-date" datetime="2026-03-05">৫ মার্চ, ২০২৬</time>
+        </article>
+      </div>
+      <div class="ls-cta-banner">
+        <div>
+          <h3 style="font-size:1.25rem;font-weight:700;margin-bottom:.5rem">আপনার আইনি সমস্যার সমাধান খুঁজছেন?</h3>
+          <p style="color:rgba(255,255,255,.85)">আজই ফ্রি কনসাল্টেশন বুক করুন—প্রথম ১৫ মিনিট সম্পূর্ণ ফ্রি।</p>
+        </div>
+        <a href="tel:+8801700000000" class="ls-btn ls-btn-primary">📞 এখনই কল করুন</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="ls-footer" id="contact">
+    <div class="ls-social">
+      <a href="#" aria-label="ফেসবুক">f</a>
+      <a href="#" aria-label="লিঙ্কডইন">in</a>
+      <a href="#" aria-label="টুইটার">𝕏</a>
+      <a href="#" aria-label="ইউটিউব">▶</a>
+    </div>
+    <div class="ls-footer-links">      <a href="#services">সেবাসমূহ</a>
+      <a href="#faq">প্রশ্নোত্তর</a>
+      <a href="#">প্রাইভেসি পলিসি</a>
+      <a href="#">টার্মস অফ সার্ভিস</a>
+    </div>
+    <p>© ২০২৬ LegalBD. সর্বস্বত্ব সংরক্ষিত।</p>
+    <p style="margin-top:.5rem;font-size:.9rem">📍 ঢাকা, বাংলাদেশ | 📧 info@legalbd.com | 📞 +৮৮০১৭০০-০০০০০০</p>
+  </footer>
+
+  <!-- ===== WHATSAPP BUTTON ===== -->
+  <a href="https://wa.me/8801700000000?text=আমি%20আইনি%20সহায়তা%20চাই" class="ls-whatsapp" target="_blank" rel="noopener" aria-label="হোয়াটসঅ্যাপ">💬</a>
+
+  <!-- ===== JAVASCRIPT ===== -->
+  <script>
+    // Sticky Header
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 10), {passive:true});
+
+    // Mobile Menu
+    const menuBtn = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    menuBtn?.addEventListener('click', () => navLinks.classList.toggle('active'));
+    navLinks?.querySelectorAll('a').forEach(link => link.addEventListener('click', () => navLinks.classList.remove('active')));
+
+    // Dark Mode
+    const themeToggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    html.setAttribute('data-theme', savedTheme);
+    themeToggle.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+    themeToggle?.addEventListener('click', () => {
+      const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      themeToggle.textContent = next === 'dark' ? '☀️' : '🌙';
+    });
+
+    // Contact Form
+    const contactForm = document.getElementById('contactForm');
+    contactForm?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = contactForm.querySelector('button[type="submit"]');
+      const originalText = btn.innerHTML;
+      const required = contactForm.querySelectorAll('[required]');
+      let valid = true;
+      required.forEach(field => {
+        if(!field.value.trim()){valid = false;field.style.borderColor = '#ef4444';setTimeout(() => field.style.borderColor = '', 2000);}
+      });
+      if(!valid) return;
+      btn.disabled = true;      btn.innerHTML = '⏳ পাঠানো হচ্ছে...';
+      await new Promise(resolve => setTimeout(resolve, 1500));
+      btn.innerHTML = '✅ সফলভাবে পাঠানো হয়েছে!';
+      btn.style.background = '#22c55e';
+      contactForm.reset();
+      setTimeout(() => {btn.disabled = false;btn.innerHTML = originalText;btn.style.background = '';}, 3000);
+    });
+
+    // Phone Input Format
+    document.getElementById('phone')?.addEventListener('input', function(e){
+      let val = e.target.value.replace(/\D/g,'');
+      if(val.length > 11) val = val.slice(0,11);
+      e.target.value = val;
+    });
+  </script>
+</body>
+</html>
