@@ -224,6 +224,25 @@
   }
   [data-theme="dark"] .lbd-btn--ghost{color:var(--text)}
   .lbd-btn--sm{padding:.55rem 1.1rem;font-size:.875rem}
+  /* Upgraded CTA with sub-label */
+  .lbd-btn--cta{
+    flex-direction:column;gap:.15rem;
+    padding:.7rem 1.75rem;
+    line-height:1;
+  }
+  .lbd-btn-cta__inner{display:flex;flex-direction:column;align-items:center;gap:.2rem}
+  .lbd-btn-cta__main{font-size:1rem;font-weight:700}
+  .lbd-btn-cta__sub{
+    font-size:.72rem;font-weight:500;
+    opacity:.78;letter-spacing:.02em;
+  }
+  /* Hero trust line (task 2) */
+  .lbd-hero__trust-line{
+    margin-top:.85rem;
+    font-size:.875rem;
+    color:rgba(255,255,255,.72);
+    letter-spacing:.01em;
+  }
 
   /* ============================================================
      STICKY CTA BAR (call + whatsapp)
@@ -278,7 +297,6 @@
   .lbd-reveal{
     opacity:0;
     transform:translateY(20px);
-    /* GPU-composited props only → no layout/paint */
     transition:opacity .55s var(--ease),transform .55s var(--ease);
     will-change:opacity,transform;
   }
@@ -287,6 +305,9 @@
   .lbd-reveal--d2{transition-delay:.16s}
   .lbd-reveal--d3{transition-delay:.24s}
   .lbd-reveal--d4{transition-delay:.32s}
+  /* Pure fade (no translate) — for elements that shouldn't shift */
+  .lbd-fade{opacity:0;transition:opacity .5s var(--ease)}
+  .lbd-fade.is-visible{opacity:1}
 
   /* ============================================================
      HERO
@@ -677,6 +698,22 @@
     background:rgba(201,162,39,.14);color:var(--c-gold);
     display:flex;align-items:center;justify-content:center;
     font-size:.76rem;font-weight:700;
+  }
+  .lbd-pricing-save{
+    background:rgba(34,197,94,.18);color:#16a34a;
+    border:1px solid rgba(34,197,94,.3);
+    padding:.15rem .55rem;border-radius:50px;
+    font-size:.75rem;font-weight:700;white-space:nowrap;
+  }
+  [data-theme="dark"] .lbd-pricing-save{background:rgba(34,197,94,.15);color:#4ade80}
+  .lbd-pricing__note{
+    text-align:center;font-size:.83rem;
+    color:var(--text-2);margin-top:2rem;
+    padding:.75rem 1rem;
+    border:1px dashed var(--border);
+    border-radius:var(--r);
+    background:var(--surface);
+    max-width:700px;margin:2rem auto 0;
   }
 
   /* ============================================================
@@ -1071,24 +1108,42 @@
   #lbd-back-top.is-visible{opacity:1;pointer-events:auto}
   #lbd-back-top:hover{background:var(--c-gold);transform:translateY(-3px)}
 
+  /* TASK 3: WhatsApp pill with text */
   .lbd-wa{
     position:fixed;bottom:1.5rem;right:1.5rem;z-index:9999;
-    width:56px;height:56px;border-radius:50%;
+    height:52px;
+    padding:0 1.1rem 0 .85rem;
+    border-radius:50px;
     background:#25D366;color:#fff;
-    display:flex;align-items:center;justify-content:center;
-    font-size:1.65rem;
+    display:flex;align-items:center;gap:.55rem;
     box-shadow:0 8px 28px rgba(37,211,102,.42);
-    transition:transform .2s,box-shadow .2s;
+    transition:transform .2s,box-shadow .2s,padding .2s;
     animation:waPulse 2.5s infinite;
+    text-decoration:none;
   }
-  .lbd-wa:hover{transform:scale(1.1);box-shadow:0 14px 38px rgba(37,211,102,.6);animation:none}
+  .lbd-wa:hover{
+    transform:translateY(-3px);
+    box-shadow:0 14px 38px rgba(37,211,102,.58);
+    animation:none;
+  }
+  .lbd-wa__icon{font-size:1.5rem;flex-shrink:0;line-height:1}
+  .lbd-wa__text{display:flex;flex-direction:column;line-height:1.2}
+  .lbd-wa__text-main{font-size:.88rem;font-weight:700;letter-spacing:.01em}
+  .lbd-wa__text-sub{font-size:.72rem;font-weight:500;opacity:.85}
   @keyframes waPulse{
     0%{box-shadow:0 0 0 0 rgba(37,211,102,.4)}
     70%{box-shadow:0 0 0 13px rgba(37,211,102,0)}
     100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}
   }
+  /* Mobile: collapse to circle icon only */
   @media(max-width:480px){
-    .lbd-wa{width:50px;height:50px;font-size:1.4rem;bottom:4.5rem;right:1rem}
+    .lbd-wa{
+      width:50px;height:50px;border-radius:50%;
+      padding:0;justify-content:center;
+      bottom:4.5rem;right:1rem;
+    }
+    .lbd-wa__text{display:none}
+    .lbd-wa__icon{font-size:1.4rem}
     #lbd-back-top{bottom:9rem;right:1rem}
   }
 
@@ -1201,9 +1256,17 @@
           কর্পোরেট, পারিবারিক, সম্পত্তি ও সাইবার আইন—আমাদের অভিজ্ঞ টিম সর্বদা আপনার পাশে। বিনামূল্যে পরামর্শের জন্য আজই যোগাযোগ করুন।
         </p>
         <div class="lbd-btn-group">
-          <a href="#booking" class="lbd-btn lbd-btn--gold">📅 <span data-bn="অ্যাপয়েন্টমেন্ট নিন" data-en="Book Appointment">অ্যাপয়েন্টমেন্ট নিন</span></a>
+          <!-- TASK 1: Upgraded primary CTA with subtext -->
+          <a href="#booking" class="lbd-btn lbd-btn--gold lbd-btn--cta">
+            <span class="lbd-btn-cta__inner">
+              <span class="lbd-btn-cta__main">📅 <span data-bn="ফ্রি কনসাল্টেশন নিন" data-en="Free Consultation">ফ্রি কনসাল্টেশন নিন</span></span>
+              <span class="lbd-btn-cta__sub" data-bn="২৪/৭ সাপোর্ট উপলব্ধ" data-en="24/7 support available">২৪/৭ সাপোর্ট উপলব্ধ</span>
+            </span>
+          </a>
           <a href="#services" class="lbd-btn lbd-btn--outline"><span data-bn="সেবাসমূহ দেখুন →" data-en="View Services →">সেবাসমূহ দেখুন →</span></a>
         </div>
+        <!-- TASK 2: Trust line -->
+        <p class="lbd-hero__trust-line lbd-fade">✔️ <span data-bn="১২০০+ ক্লায়েন্টের বিশ্বাস" data-en="Trusted by 1200+ Clients">১২০০+ ক্লায়েন্টের বিশ্বাস</span> &nbsp;|&nbsp; ✔️ <span data-bn="দ্রুত আইনি সহায়তা" data-en="Fast Legal Support">দ্রুত আইনি সহায়তা</span> &nbsp;|&nbsp; ✔️ <span data-bn="২৪/৭ উপলব্ধ" data-en="24/7 Available">২৪/৭ উপলব্ধ</span></p>
         <p class="lbd-hero__urgency"><span class="lbd-hero__urgency-dot"></span><span data-bn="আজ মাত্র ৩টি ফ্রি স্লট বাকি আছে" data-en="Only 3 free slots available today">আজ মাত্র ৩টি ফ্রি স্লট বাকি আছে</span></p>
         <div class="lbd-hero__trust">
           <div class="lbd-hero__trust-item">🏛️ <span data-bn="বার কাউন্সিল রেজিস্টার্ড" data-en="Bar Council Registered">বার কাউন্সিল রেজিস্টার্ড</span></div>
@@ -1402,9 +1465,15 @@
         <div class="lbd-pricing-card__icon">⚡</div>
         <div class="lbd-pricing-card__name" data-bn="প্রিমিয়াম" data-en="Premium">প্রিমিয়াম</div>
         <div class="lbd-pricing-card__desc">কর্পোরেট ও জটিল মামলার সম্পূর্ণ সমাধান</div>
-        <div class="lbd-pricing-card__price"><div class="lbd-price">৳১৫,০০০</div><span class="lbd-price-note">প্রতি মামলা থেকে শুরু</span></div>
+        <div class="lbd-pricing-card__price">
+          <div style="display:flex;align-items:baseline;gap:.6rem;flex-wrap:wrap">
+            <div class="lbd-price">৳১৫,০০০</div>
+            <span class="lbd-pricing-save" data-bn="৩০% সাশ্রয়" data-en="Save 30%">৩০% সাশ্রয়</span>
+          </div>
+          <span class="lbd-price-note">প্রতি মামলা থেকে শুরু</span>
+        </div>
         <ul class="lbd-pricing-card__features"><li>সীমাহীন কনসাল্টেশন</li><li>পূর্ণাঙ্গ কেস ম্যানেজমেন্ট</li><li>ডকুমেন্ট প্রস্তুতি ও ফাইলিং</li><li>আদালতে প্রতিনিধিত্ব</li><li>৬ মাস ফলোআপ সাপোর্ট</li><li>অগ্রাধিকার ভিত্তিক সেবা</li></ul>
-        <a href="#booking" class="lbd-btn lbd-btn--gold" style="width:100%;justify-content:center">এখনই নিন →</a>
+        <a href="#booking" class="lbd-btn lbd-btn--gold" style="width:100%;justify-content:center">📅 এখনই বুক করুন →</a>
       </div>
       <div class="lbd-pricing-card lbd-reveal lbd-reveal--d2">
         <div class="lbd-pricing-card__icon">🏢</div>
@@ -1415,6 +1484,10 @@
         <a href="#consult" class="lbd-btn lbd-btn--ghost" style="width:100%;justify-content:center">আলোচনা করুন →</a>
       </div>
     </div>
+    <!-- Pricing bottom trust line -->
+    <p class="lbd-pricing__note lbd-fade">
+      🔒 <span data-bn="সকল প্যাকেজে ১০০% মানি-ব্যাক গ্যারান্টি · কোনো হিডেন চার্জ নেই · যেকোনো সময় বাতিল করুন" data-en="100% money-back guarantee on all plans · No hidden charges · Cancel anytime">সকল প্যাকেজে ১০০% মানি-ব্যাক গ্যারান্টি · কোনো হিডেন চার্জ নেই · যেকোনো সময় বাতিল করুন</span>
+    </p>
   </div>
 </section>
 
@@ -1693,7 +1766,14 @@
 
 <!-- Floating buttons -->
 <button id="lbd-back-top" aria-label="উপরে যান">↑</button>
-<a href="https://wa.me/8801700000000?text=আমি%20আইনি%20সহায়তা%20চাই" class="lbd-wa" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp-এ যোগাযোগ করুন">💬</a>
+<!-- TASK 3: Aggressive WhatsApp pill with text -->
+<a href="https://wa.me/8801700000000?text=আমি%20আইনি%20সহায়তা%20চাই" class="lbd-wa" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp-এ যোগাযোগ করুন">
+  <span class="lbd-wa__icon">💬</span>
+  <span class="lbd-wa__text">
+    <span class="lbd-wa__text-main" data-bn="Chat Now" data-en="Chat Now">Chat Now</span>
+    <span class="lbd-wa__text-sub" data-bn="ফ্রি পরামর্শ" data-en="Free Advice">ফ্রি পরামর্শ</span>
+  </span>
+</a>
 
 <!-- Mobile sticky CTA -->
 <div class="lbd-sticky-cta" id="lbdStickyCta" aria-label="দ্রুত যোগাযোগ">
@@ -1826,14 +1906,40 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 });
 
 /* ================================================================
-   INTERSECTION OBSERVER — scroll reveal
+   INTERSECTION OBSERVER — scroll reveal + auto-stagger grids
 ================================================================ */
 const revealIO = new IntersectionObserver(entries => {
   entries.forEach(e => {
-    if (e.isIntersecting) { e.target.classList.add('is-visible'); revealIO.unobserve(e.target); }
+    if (e.isIntersecting) {
+      e.target.classList.add('is-visible');
+      revealIO.unobserve(e.target);
+    }
   });
-}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-document.querySelectorAll('.lbd-reveal').forEach(el => revealIO.observe(el));
+}, { threshold: 0.08, rootMargin: '0px 0px -36px 0px' });
+document.querySelectorAll('.lbd-reveal, .lbd-fade').forEach(el => revealIO.observe(el));
+
+/* Auto-stagger: assign cascade delays to grid card children */
+const STAGGER_GRIDS = [
+  '.lbd-services__grid',
+  '.lbd-team__grid',
+  '.lbd-pricing__grid',
+  '.lbd-reviews__grid',
+  '.lbd-counters__grid',
+];
+STAGGER_GRIDS.forEach(sel => {
+  const grid = document.querySelector(sel);
+  if (!grid) return;
+  const gridIO = new IntersectionObserver(([entry]) => {
+    if (!entry.isIntersecting) return;
+    [...grid.children].forEach((child, i) => {
+      if (!child.classList.contains('lbd-reveal') && !child.classList.contains('lbd-fade')) return;
+      /* Override any existing delay with a grid-position stagger */
+      child.style.transitionDelay = (i * 0.07) + 's';
+    });
+    gridIO.disconnect();
+  }, { threshold: 0.05 });
+  gridIO.observe(grid);
+});
 
 /* ================================================================
    ANIMATED COUNTERS
